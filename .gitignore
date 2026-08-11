@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+storage/uploads/*
+storage/results/*
+!storage/uploads/.gitkeep
+!storage/results/.gitkeep
+weights/*.pt
+dataset/

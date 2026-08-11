@@ -1,0 +1,14 @@
+torch>=2.4
+torchvision>=0.19
+ultralytics>=8.3
+opencv-python-headless>=4.10
+numpy>=1.26,<2.3
+scipy>=1.13
+lapx>=0.5
+filterpy>=1.4.5
+fastapi>=0.115
+uvicorn[standard]>=0.30
+python-multipart>=0.0.9
+psutil>=6.0
+nvidia-ml-py>=12.560
+gdown>=5.2

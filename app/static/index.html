@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Multi-Object Tracking Studio</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="aurora"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">◎</div>
+      <div>
+        <h1>Tracking Studio</h1>
+        <p>ByteTrack · BoT-SORT-ReID · OC-SORT · Hybrid-SORT</p>
+      </div>
+    </div>
+    <div class="device-pill" id="devicePill">device: …</div>
+  </header>
+
+  <main class="layout">
+    <section class="panel controls">
+      <h2><span class="step">1</span> Upload video</h2>
+      <label class="dropzone" id="dropzone">
+        <input type="file" id="fileInput" accept="video/*" hidden />
+        <div class="dz-icon">⇪</div>
+        <div class="dz-text" id="dzText">Drop a video here or <u>browse</u></div>
+      </label>
+
+      <h2><span class="step">2</span> Choose algorithm</h2>
+      <div class="tracker-grid" id="trackerGrid"></div>
+
+      <h2><span class="step">3</span> Scope &amp; run</h2>
+      <div class="toggle" id="modeToggle">
+        <button data-mode="instance" class="active">Selected objects</button>
+        <button data-mode="class">Whole classes</button>
+      </div>
+      <div class="sel-summary" id="selSummary">Nothing selected — will track everything.</div>
+      <button class="run-btn" id="runBtn" disabled>Start Tracking</button>
+      <button class="ghost-btn" id="downloadBtn" hidden>⬇ Download result</button>
+      <div class="hint" id="statusLine">Waiting for a video…</div>
+    </section>
+
+    <section class="panel stage">
+      <div class="stage-head">
+        <span class="badge" id="algoBadge">—</span>
+        <div class="sel-tools" id="selTools" hidden>
+          <button id="selAllBtn">Select all</button>
+          <button id="clearBtn">Clear</button>
+          <span class="tool-hint">click a box to select · drag on empty space to draw</span>
+        </div>
+        <div class="progress"><div class="progress-fill" id="progressFill"></div></div>
+        <span class="frame-count" id="frameCount">0 / 0</span>
+      </div>
+      <div class="viewport" id="viewport">
+        <img id="stream" alt="stream" />
+        <canvas id="selCanvas" hidden></canvas>
+        <div class="placeholder" id="placeholder">Live tracking output appears here</div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat"><span class="k">FPS</span><span class="v" id="mFps">—</span></div>
+        <div class="stat"><span class="k">Detect</span><span class="v" id="mDet">—<i>ms</i></span></div>
+        <div class="stat"><span class="k">Track</span><span class="v" id="mTrk">—<i>ms</i></span></div>
+        <div class="stat"><span class="k">Objects</span><span class="v" id="mObj">—</span></div>
+        <div class="stat"><span class="k">CPU</span><span class="v" id="mCpu">—<i>%</i></span></div>
+        <div class="stat"><span class="k">RAM</span><span class="v" id="mRam">—<i>MB</i></span></div>
+        <div class="stat wide"><span class="k">GPU</span><span class="v" id="mGpu">—</span>
+          <div class="bar"><div class="bar-fill" id="gpuBar"></div></div></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
